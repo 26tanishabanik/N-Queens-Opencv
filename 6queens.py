@@ -21,7 +21,7 @@ def draw_text(frame, text, x, y, color=(255,0,255), thickness=4, size=3):
     if x is not None and y is not None:
         cv2.putText(frame, text, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, size, color, thickness)
 
-mycolors = itertools.cycle([(255,0,0), (180,105,255)])
+
 def drawAll(img, buttonList = [], button1 = None, button2 = None):
     for button in buttonList:
         x, y = button.pos
@@ -162,27 +162,9 @@ while True:
             wait2 -= 1
         timer_timeout_text+=0.03333
     else:
-        # time.sleep(1)
-        # sc = sc+1
-        # if sc > 9 and sc <60:
-        #     sec = sc
-        # elif sc <= 9:
-        #     sec = "0"+str(sc)
-        # if sc == 60:
-        #     mn += 1
-        #     if mn > 9 and mn <60:
-        #         min = mn
-        #     elif mn <= 9:
-        #         min = "0"+str(mn)+":"
-        #     sc = 0
-        # if mn == 60:
-        #     hr += 1
-        #     mn = 0
         if timer <= 0 and show == True:
             draw_text(img, str(time.strftime('%H:%M:%S')), center_x+1300, center_y-500,color = (0,255,255), thickness = 10, size = 3)
-        # if time.time() > counter_timeout_text and counter >0:
-        #     draw_text(img, "Counter: "+str(counter), center_x+1300, center_y-700, (0,255,255), 8, 5)
-        #     timer_timeout_text+=0.03333
+        
         if lmList:
             if not done and not gameOver:
                 for button in buttonList:
@@ -252,17 +234,7 @@ while True:
             
 
                 
-        
-
-
-        # for queen in queens:
-        #     if coorx == queen.row and coory == queen.column:
-        #         print(queen.row, queen.column)
-        #     x, y = queen.pos
-        #     w, h = queen.size
-        #     drop_piece(board, int(queen.row), int(queen.column), 1)
-        #     x1,y1 = x+w//2, y+h//2
-        #     draw_text(img, "Q", x1, y1, color=(255,255,255), thickness=10, size=3)
+       
         for button in buttonList:
             for rows in range(ROW_COUNT):
                 for columns in range(COLUMN_COUNT):
@@ -294,9 +266,7 @@ while True:
             invalid = False
 
 
-        # if time.time() > counter_timeout:
-        #     counter+=1
-        #     counter_timeout += 1
+        
         
 
     if time.time() > timer_timeout:
